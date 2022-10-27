@@ -66,7 +66,15 @@ createApp({
             if(this.activeIndex > this.slides.length - 1){
                 this.activeIndex = 0
             }
-        }
-    }   
+        },
+        autoplay() {
+            this.autoplay = setInterval(()=> {
+                this.nextSlide();
+            }, 2000)
+        }      
+    }, 
+    mounted(){
+        this.autoplay();
+    } 
 }).mount('#app')
 
