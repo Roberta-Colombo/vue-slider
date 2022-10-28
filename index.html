@@ -14,8 +14,7 @@
         <div class="container" >
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item" @mouseover="stopAutoplay"
-                 @mouseleave="restartAutoplay">
+                <div class="item" @mouseover="stopAutoplay"              @mouseleave="autoplay">   
 
                     <img :src="slides[activeIndex].image" alt="{{ slides[activeIndex].title }}"/>
                     <div class="text">
@@ -34,7 +33,8 @@
 
                     <div v-for="(slide, index) in slides" :key="index"
                      class="thumb" :class="index === activeIndex ? 'active' : '' " >
-                        <img :src="slides[index].image" alt="{{ slides[activeIndex].title }}"/>
+                        <!-- <img :src="slides[index].image" alt="{{ slides[activeIndex].title }}"/> -->
+                        <img :src="slide.image" alt="{{ slide.title }}"/>
                     </div>
 
                     <!-- <div class="thumb">

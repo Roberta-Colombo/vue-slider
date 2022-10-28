@@ -29,6 +29,8 @@ createApp({
     data() {
         return {
             activeIndex: 0,
+            autoscroll: null,
+            // autoscroll = assegna un id ad ogni intervallo
             slides: [
                 {
                     image: 'img/01.webp',
@@ -68,18 +70,14 @@ createApp({
             }
         },
         autoplay() {
-            this.autoplay = setInterval(()=> {
+            this.autoscroll = setInterval(()=> {
                 this.nextSlide();
             }, 2000)
         },
         stopAutoplay() {
-            clearInterval(this.autoplay);
-        },
-        restartAutoplay() {
-            this.autoplay = setInterval(()=> {
-                this.nextSlide();
-            }, 2000)
-        },     
+            clearInterval(this.autoscroll);
+            this.autoscroll = null;
+        }    
     }, 
     mounted(){
         this.autoplay();
